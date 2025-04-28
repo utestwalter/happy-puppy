@@ -1,0 +1,53 @@
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Puppy — Dog Breed Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="wrapper">
+        <h1>🐶 Happy Puppy</h1>
+        <p>Upload a photo of your dog, and we'll predict its breed!</p>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flash">
+              {% for message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <!-- Upload form -->
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" required>
+            <button type="submit">Predict Breed</button>
+        </form>
+
+        <p class="upload-note">Accepts: .jpeg, .jpg, .png (Max size: 1MB)</p>
+
+        <!-- Prediction result -->
+        {% if prediction %}
+            <div class="result">
+                <h2>{{ prediction }}</h2>
+            </div>
+        {% endif %}
+
+        <!-- Disclaimer -->
+        <p class="disclaimer">
+            Note:<br>
+            1. This model has been trained to recognize only two dog breeds — French Bulldog and Siberian Husky.<br>
+            2. If the uploaded photo features a dog closely resembling one of these breeds, the model might predict incorrectly.<br>
+            3. In most cases, non-French Bulldog and non-Siberian Husky photos will be identified accordingly.
+        </p>
+    </div>
+</body>
+</html>
+
+
+
