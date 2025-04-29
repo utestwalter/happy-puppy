@@ -62,7 +62,7 @@ def index():
                 predicted_class = class_names[np.argmax(pred)]
                 
 
-                threshold = 0.995
+                threshold = 0.998
 
                 if confidence >= threshold:
                     prediction = f"Breed: {predicted_class} ({confidence*100:.2f}%)"
