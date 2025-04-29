@@ -62,10 +62,13 @@ def index():
                 predicted_class = class_names[np.argmax(pred)]
                 
 
-                if confidence < 1.00:
-                    prediction = "The uploaded image is neither a French Bulldog nor a Siberian Husky."
-                else:
+                threshold = 1.0
+
+                if confidence >= threshold:
                     prediction = f"Breed: {predicted_class}"
+                else:
+                    prediction = "The uploaded image is neither a French Bulldog nor a Siberian Husky."
+
 
             except Exception as e:
                 flash('An error occurred while processing the image.')
