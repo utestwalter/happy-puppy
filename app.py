@@ -62,10 +62,10 @@ def index():
                 predicted_class = class_names[np.argmax(pred)]
                 
 
-                threshold = 1.0
+                threshold = 0.995
 
                 if confidence >= threshold:
-                    prediction = f"Breed: {predicted_class}"
+                    prediction = f"Breed: {predicted_class} ({confidence*100:.2f}%)"
                 else:
                     prediction = "The uploaded image is neither a French Bulldog nor a Siberian Husky."
 
