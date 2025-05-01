@@ -9,3 +9,7 @@ This project was created as a home experiment to explore building, training, and
 
 > The web version is currently hosted [here](https://happy-puppy-304129024817.us-central1.run.app/).
 
+### Training scripts
+
+For those interested in training the model from scratch, you can download the archive with all training scripts here:  
+[training files.zip](https://github.com/utestwalter/happy-puppy/blob/main/training%20files.zip)
